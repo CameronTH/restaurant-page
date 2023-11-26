@@ -5,26 +5,18 @@ import { createContact } from "./contact";
 createPageHeader();
 createPageContent();
 
-const navHome = document.querySelector(".home");
-const navMenu = document.querySelector(".menu");
-const navContact = document.querySelector(".contact");
+const navButtons = document.querySelectorAll(".nav");
 
-function clearContent() {
-  const mainContent = document.querySelector(".main-content");
-  mainContent.remove();
-}
-
-navHome.addEventListener("click", () => {
-  clearContent();
-  createPageContent();
-});
-
-navMenu.addEventListener("click", () => {
-  clearContent();
-  createMenu();
-});
-
-navContact.addEventListener("click", () => {
-  clearContent();
-  createContact();
+navButtons.forEach((element) => {
+  element.addEventListener("click", () => {
+    if (element.classList.contains("home")) {
+      createPageContent();
+    } else if (element.classList.contains("menu")) {
+      createMenu();
+    } else if (element.classList.contains("contact")) {
+      createContact();
+    }
+    const mainContent = document.querySelector(".main-content");
+    mainContent.remove();
+  });
 });

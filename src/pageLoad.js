@@ -20,21 +20,19 @@ function createPageHeader() {
   headerLinks.style.listStyleType = "none";
 
   headerHome.textContent = "Home";
-  headerHome.classList.add("home");
+  headerHome.classList.add("nav", "home");
 
   headerMenu.textContent = "Menu";
-  headerMenu.classList.add("menu");
+  headerMenu.classList.add("nav", "menu");
 
   headerContact.textContent = "Contact";
-  headerContact.classList.add("contact");
+  headerContact.classList.add("nav", "contact");
 
   headerLeft.append(logo);
-  header.append(headerLeft);
-
   headerLinks.append(headerHome, headerMenu, headerContact);
   headerRight.append(headerLinks);
 
-  header.append(headerRight);
+  header.append(headerLeft, headerRight);
 
   container.append(header);
 }
